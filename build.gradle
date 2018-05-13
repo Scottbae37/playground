@@ -1,0 +1,50 @@
+group 'BjsGroupId'
+version '0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: "jacoco"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main'
+        }
+    }
+    test {
+        java {
+            srcDirs 'src/test'
+        }
+    }
+}
+
+test {
+    reports {
+        junitXml.enabled = false
+        html.enabled = true
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.9"
+    reportsDir = file("$buildDir/bjsJacocoReportDir")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled true
+        html.destination file("$buildDir/bjsJacocoReportDir/html")
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.+'
+}

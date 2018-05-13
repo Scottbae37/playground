@@ -16,7 +16,7 @@ public class LedDriverTest {
 
     @Before
     public void setUp() throws Exception {
-        cut = new LedDriver();
+        cut = LedDriver.getLedDriverInst();
         spyLedList = new ArrayList<Led>();
 //        numOfLedToCreate = 16;
         addLed(spyLedList, numOfLedToCreate);
