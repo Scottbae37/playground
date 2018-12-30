@@ -1,4 +1,4 @@
-package org.bjs;
+package led;
 
 public interface TimeServiceIntf {
   public int getTime();

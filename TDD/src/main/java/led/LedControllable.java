@@ -1,4 +1,4 @@
-package org.bjs;
+package led;
 
 public interface LedControllable {
   static final int LIGHT_ID_UNKNOWN = -1;

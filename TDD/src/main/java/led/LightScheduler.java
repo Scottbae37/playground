@@ -1,4 +1,4 @@
-package org.bjs;
+package led;
 
 class LightScheduler {
   private LedControllable ledControllableImpl;

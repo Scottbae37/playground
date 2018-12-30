@@ -1,50 +1,67 @@
 group 'BjsGroupId'
 version '0.1-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: "jacoco"
+subprojects {
+    group 'BjsGroupId'
 
-sourceCompatibility = 1.8
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
 
-repositories {
-    mavenCentral()
-}
+    sourceCompatibility = 1.8
 
-sourceSets {
-    main {
-        java {
-            srcDirs 'src/main'
-        }
+    repositories {
+        mavenCentral()
     }
-    test {
-        java {
-            srcDirs 'src/test'
-        }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
+        testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.+'
     }
 }
-
-test {
-    reports {
-        junitXml.enabled = false
-        html.enabled = true
+/*
+buildscript {
+    ext {
+        springBootVersion = '1.5.1.RELEASE'
     }
-}
-
-jacoco {
-    toolVersion = "0.7.9"
-    reportsDir = file("$buildDir/bjsJacocoReportDir")
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled true
-        html.destination file("$buildDir/bjsJacocoReportDir/html")
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
     }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
-    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.7.+'
+subprojects {
+    group 'com.blogcode'
+    version '1.0'
+
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
 }
+
+project(':module-api') {
+    dependencies {
+        compile project(':module-common')
+    }
+}
+
+project(':module-web') {
+    dependencies {
+        compile project(':module-common')
+    }
+}
+
+ */

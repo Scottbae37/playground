@@ -1,4 +1,4 @@
-package org.bjs;
+package led;
 
 public class Led {
   private boolean isOn;
