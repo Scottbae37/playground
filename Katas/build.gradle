@@ -15,4 +15,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: '26.0-jre'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.2.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
+    // https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+    testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.2.0'
 }
