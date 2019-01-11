@@ -21,4 +21,6 @@ dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.2.0'
     // https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
     testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.2.0'
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
 }
