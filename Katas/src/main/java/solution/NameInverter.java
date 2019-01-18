@@ -10,14 +10,18 @@ public class NameInverter {
   public static String invert(String name) {
     List<String> nameParts = breakingIntoPartsIgnoringWhitespace(name);
 
-    if (nameParts.size() < 2)
-      return nameParts.get(0);
+    if (hasOnlyFirstName(nameParts))
+      return nameParts.get(0); //First Name
 
-    return invert(withoutHonorifics(nameParts));
+    return _invert(withoutHonorifics(nameParts));
   }
 
   private static ArrayList<String> breakingIntoPartsIgnoringWhitespace(String name) {
     return Lists.newArrayList(name.trim().split(RegularExpressions.ANY_SPACES));
+  }
+
+  private static boolean hasOnlyFirstName(List<String> nameParts) {
+    return nameParts.size() < 2;
   }
 
   private static List<String> withoutHonorifics(List<String> nameParts) {
@@ -29,11 +33,10 @@ public class NameInverter {
     return nameParts;
   }
 
-  private static String invert(List<String> nameParts) {
+  private static String _invert(List<String> nameParts) {
     String first = nameParts.get(0);
     String last = nameParts.get(1);
-    String postnominals = "";
-    postnominals = findAndMergePostnominals(nameParts);
+    String postnominals = findAndMergePostnominals(nameParts);
 
     return String.format("%s, %s %s", last, first, postnominals).trim();
   }
