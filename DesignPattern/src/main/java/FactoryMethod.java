@@ -5,7 +5,12 @@ public class FactoryMethod {
    * Factory Method 패턴에서는 클래스의 인스턴스를 만드는 시점을
    * 서브클래스로 미룬다.
    * <p>
-   * AbstractFactory와 다른 부분은 하나의 메소드로 여러 객체를 생성
+   * AbstractFactory는 다르게 상속을 사용하여, 하위 클래스가 Factory Method 를 override 하여 객체 생성
+   * https://stackoverflow.com/questions/5739611/differences-between-abstract-factory-pattern-and-factory-method
+   *
+   * the Factory Method pattern uses inheritance and relies on a subclass to handle the desired object instantiation.
+   *
+   * with the Abstract Factory pattern, a class delegates the responsibility of object instantiation to another object via composition
    */
 
   /**
@@ -23,8 +28,8 @@ public class FactoryMethod {
     DriverFactory f = new SlmDriverFactory();
     Driver driver = f.create(true, 70.5f);
 
-    f = new BusDriverFactory();
-    driver = f.create(true, 99.9f);
+    DriverFactory factory = new SlmDriverFactory();
+    driver = factory.create(true, 99.9f);
   }
 
   //FIXME: BAD
@@ -50,7 +55,7 @@ abstract class DriverFactory {
   }
 
   // 구체적인 생성은 하위 클래스가 수행하도록 추상 메소드를 선언한다.
-  abstract protected Driver createDriver();
+  abstract protected Driver createDriver(); /// Factory Method
 }
 
 interface Driver {

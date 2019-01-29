@@ -1,5 +1,13 @@
 /**
  *
+ * 1. Abstract Factory
+ * 	구체적인 클래스를 지정하지 않고 관련성을 갖는 객체들의 집합을 생성하거나
+ * 	서로 독립적인 객체들의 집합을 생성할 수 있는 인터페이스를 제공한다.
+ *
+ * 	- 팩토리의 교체만으로 생성될 객체군 전체를 교체한다.
+ * 	- 생성될 객체 군의 일관성을 유지한다.
+ * 	- 생성될 객체들의 구체적인 타입을 감춘다.
+ *
  * Intent
  *  - creates objects without exposing the instantiation logic to the client.
  *  - refers to the newly created object through a common interface
