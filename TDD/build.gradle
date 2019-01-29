@@ -11,6 +11,13 @@ repositories {
     mavenCentral()
 }
 
+def junit5_ver = '5.2.+'
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junit5_ver
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junit5_ver
+    // https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+    testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: junit5_ver
 }
