@@ -8,6 +8,17 @@ public class FactoryMethod {
    * AbstractFactory와 다른 부분은 하나의 메소드로 여러 객체를 생성
    */
 
+  /**
+   * Intent
+   * - Defines an interface for creating objects, but let subclasses to decide which class to instantiate
+   * - Refers to the newly created object through a common interface
+   *
+   * Applicability & Examples
+   *  - The need for implementing the Factory Method is very frequent. The cases are the ones below:
+   *   > when a class can't anticipate the type of the objects it is supposed to create
+   *   > when a class wants its subclasses to be the ones to specific the type of a newly created object
+   *
+   */
   public static void main(String[] agrs) {
     DriverFactory f = new SlmDriverFactory();
     Driver driver = f.create(true, 70.5f);
