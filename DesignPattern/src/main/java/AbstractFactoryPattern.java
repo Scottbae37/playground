@@ -1,3 +1,10 @@
+/**
+ *
+ * Intent
+ *  - creates objects without exposing the instantiation logic to the client.
+ *  - refers to the newly created object through a common interface
+ *
+ */
 public class AbstractFactoryPattern {
   public static void main(String[] agrs) {
     AbstractFactoryPattern pattern = new AbstractFactoryPattern();
