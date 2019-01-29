@@ -1,18 +1,18 @@
 package solution;
 
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
 
 public class FizzBuzzTest {
 
     private FizzBuzz cut;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         cut = new FizzBuzz();
     }

@@ -40,6 +40,11 @@ public class AbstractFactoryPattern {
   }
 }
 
+/**
+ * 1. 한번만 생성되면 되고(Singleton 특성)
+ * 2. 코드가 간단한 경우
+ * enum을 활용하여 구현할 수 있다.
+ */
 enum EnumStyleFactory implements Factory {
   MAC {
     @Override

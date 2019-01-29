@@ -10,7 +10,7 @@ import java.util.List;
  * Specific problems and implementation
  * > Using a prototype manager
  *  - 동적으로 생성 삭제 할 수 있는 객체들의 registry를 만들어 보관하고, 이를
- * protytype manger라 하고 객체들을 관리함
+ * prototype manger라 하고 객체들을 관리함
  *
  * 비슷하지만, 약간 다른 객체를 생성할 때, 새로 생성하는 것 보다는 Clone 하여,
  * 다른 부분만 바꿔서 확장하여 사용함. Clone 할 때, Deep-copy를 할 것인지

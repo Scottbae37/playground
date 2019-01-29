@@ -26,7 +26,7 @@ class Publisher {
     subscriberList.add(sub);
   }
 
-  public boolean delSubscriber(Subscriber sub) {
+  public boolean removeSubscriber(Subscriber sub) {
     return subscriberList.remove(sub);
   }
 
@@ -52,7 +52,7 @@ public class ObserverPattern {
 
     Subscriber c = new Subscriber("C");
     System.out.println("3) B is removed and C is added");
-    publisher.delSubscriber(b);
+    publisher.removeSubscriber(b);
     publisher.addSubscriber(c);
     System.out.println("4) Publisher published 1, 3");
     publisher.publishNumber(1);
