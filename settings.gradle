@@ -3,4 +3,5 @@ rootProject.name = 'playground_java'
 include 'DesignPattern'
 include 'TDD'
 include 'Katas'
+include 'Refactoring'
 

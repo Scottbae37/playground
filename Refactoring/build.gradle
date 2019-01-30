@@ -1,0 +1,15 @@
+group 'BjsGroupId'
+version '0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+def junit5_ver = '5.2.+'
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junit5_ver
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junit5_ver
+    // https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+    testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: junit5_ver
+}
