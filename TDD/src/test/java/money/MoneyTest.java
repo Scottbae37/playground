@@ -2,7 +2,7 @@ package money;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MoneyTest {
 
@@ -13,6 +13,8 @@ public class MoneyTest {
    * amount를 private으로 만들기
    * ---- Dollar 부작용(side effect)?
    * Money 반올림?
+   * ---- equals()
+   * hashCode()
    */
 
   @Test
@@ -24,6 +26,12 @@ public class MoneyTest {
     assertEquals(15, product.amount);
   }
 
+  @Test
+  void testEquality() {
+    assertTrue(new Dollar(5).equals(new Dollar(5)));
+    assertFalse(new Dollar(5).equals(new Dollar(6)));
+  }
+
   private class Dollar {
     public int amount;
 
@@ -33,6 +41,12 @@ public class MoneyTest {
 
     public Dollar times(int added) {
       return new Dollar(amount * added);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      Dollar dollar = (Dollar) obj;
+      return this.amount == dollar.amount;
     }
   }
 }
