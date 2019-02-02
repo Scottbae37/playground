@@ -18,6 +18,8 @@ public class MoneyTest {
    * Equal null
    * Equal obejct
    * ---- 5CHF * 2 = 10CHF
+   * ---- 공용 equals
+   * 공용 times
    */
 
   @Test
@@ -31,6 +33,8 @@ public class MoneyTest {
   void testEquality() {
     assertTrue(new Dollar(5).equals(new Dollar(5)));
     assertFalse(new Dollar(5).equals(new Dollar(6)));
+    assertTrue(new Franc(5).equals(new Franc(5)));
+    assertFalse(new Franc(5).equals(new Franc(6)));
   }
 
   @Test
@@ -40,8 +44,17 @@ public class MoneyTest {
     assertEquals(new Franc(15), five.times(3));
   }
 
-  private class Dollar {
-    private int amount;
+  private class Money {
+    protected int amount;
+
+    @Override
+    public boolean equals(Object obj) {
+      Money money = (Money) obj;
+      return amount == money.amount;
+    }
+  }
+
+  private class Dollar extends Money {
 
     public Dollar(int amount) {
       this.amount = amount;
@@ -51,16 +64,9 @@ public class MoneyTest {
       return new Dollar(amount * multiplier);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-      Dollar dollar = (Dollar) obj;
-      return this.amount == dollar.amount;
-    }
   }
 
-  private class Franc {
-
-    private final int amount;
+  private class Franc extends Money {
 
     public Franc(int amount) {
       this.amount = amount;
@@ -68,12 +74,6 @@ public class MoneyTest {
 
     public Franc times(int multiplier) {
       return new Franc(amount * multiplier);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-      Franc franc = (Franc) obj;
-      return amount == franc.amount;
     }
   }
 }
