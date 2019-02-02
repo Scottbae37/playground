@@ -9,7 +9,7 @@ public class MoneyTest {
   /**
    * TODO:
    * $5 + 10CHF = $10(환율이 2:1일 경우)
-   * $5 * 2 = $10
+   * ---- $5 * 2 = $10
    * amount를 private으로 만들기
    * Dollar 부작용(side effect)?
    * Money 반올림?
@@ -23,13 +23,14 @@ public class MoneyTest {
   }
 
   private class Dollar {
-    public int amount = 5 * 2; //코드의 데이터와 테스트 데이터 사이의 중복
+    public int amount;
 
     public Dollar(int amount) {
+      this.amount = amount;
     }
 
     public void times(int added) {
-
+      this.amount = this.amount * added;
     }
   }
 }
