@@ -1,6 +1,8 @@
 package practice;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,42 +23,4 @@ public class PrimeFactorsTest {
     System.out.println("tearDown");
   }
 
-  @Test
-  public void of_1_is_none() {
-
-  }
-
-  @Test
-  public void of_2_is_2() {
-
-  }
-
-  @Test
-  public void of_3_is_3() {
-
-  }
-
-  @Test
-  public void of_4_is_4() {
-
-  }
-
-  @Test
-  public void of_6_is_2_3() {
-
-  }
-
-  @Test
-  public void of_8_is_2_2_2() {
-  }
-
-  @Test
-  public void of_9_is_3_3() {
-
-  }
-
-  @Test
-  public void acceptanceTest() {
-
-  }
 }
