@@ -19,7 +19,7 @@ public class MoneyTest {
    * Equal obejct
    * ---- 5CHF * 2 = 10CHF
    * ---- 공용 equals
-   * 공용 times
+   * ---- 공용 times
    * ---- Franc과 Dollar 비교하기
    * ---- 통화? (this.getClass().equals(money.getClass()))
    * testFrancMultiplication 지워야 하나?
@@ -53,11 +53,16 @@ public class MoneyTest {
     assertEquals("USD", Money.dollar(1).currency());
     assertEquals("CHF", Money.franc(1).currency());
   }
+
+  @Test
+  void testDifferentClassEquality() {
+    assertTrue(new Money(10,"CHF").equals(new Franc(10, "CHF")));
+  }
 }
 
-abstract class Money {
+class Money {
   int amount;
-  private String currency;
+  protected String currency;
 
   public Money(int amount, String currency) {
     this.amount = amount;
@@ -75,10 +80,12 @@ abstract class Money {
   @Override
   public boolean equals(Object obj) {
     Money money = (Money) obj;
-    return amount == money.amount && this.getClass().equals(money.getClass());
+    return amount == money.amount && this.currency.equals(money.currency);
   }
 
-  abstract Money times(int multiplier);
+  Money times(int multiplier){
+    return new Money(amount * multiplier, currency);
+  }
 
   String currency() {
     return currency;
@@ -89,18 +96,10 @@ class Dollar extends Money {
   Dollar(int amount, String currency) {
     super(amount, currency);
   }
-
-  Money times(int multiplier) {
-    return Money.dollar(amount * multiplier);
-  }
 }
 
 class Franc extends Money {
   Franc(int amount, String currency) {
     super(amount, currency);
-  }
-
-  Money times(int multiplier) {
-    return Money.franc(amount * multiplier);
   }
 }
