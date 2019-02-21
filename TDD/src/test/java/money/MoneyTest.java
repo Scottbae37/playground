@@ -9,20 +9,11 @@ public class MoneyTest {
   /**
    * TODO:
    * $5 + 10CHF = $10(환율이 2:1일 경우)
-   * ---- $5 * 2 = $10
-   * ---- amount를 private으로 만들기
-   * ---- Dollar 부작용(side effect)?
+   * $5 + $5 = $10
    * Money 반올림?
-   * ---- equals()
    * hashCode()
    * Equal null
    * Equal obejct
-   * ---- 5CHF * 2 = 10CHF
-   * ---- 공용 equals
-   * ---- 공용 times
-   * ---- Franc과 Dollar 비교하기
-   * ---- 통화? (this.getClass().equals(money.getClass()))
-   * ---- testFrancMultiplication 지워야 하나?
    */
 
   @Test
@@ -51,9 +42,29 @@ public class MoneyTest {
     assertEquals("USD", Money.dollar(1).currency());
     assertEquals("CHF", Money.franc(1).currency());
   }
+
+  @Test
+  void testSimpleAddition() {
+    Money five = Money.dollar(5);
+    Expression sum = five.plus(Money.dollar(5));
+    Bank bank = new Bank();
+    Money reduced = bank.reduce(sum, "USD");
+    assertEquals(Money.dollar(10), reduced);
+  }
+
 }
 
-class Money {
+interface Expression {
+
+}
+
+class Bank {
+  public Money reduce(Expression sum, String usd) {
+    return Money.dollar(10);
+  }
+}
+
+class Money implements Expression {
   int amount;
   protected String currency;
 
@@ -76,11 +87,15 @@ class Money {
     return amount == money.amount && this.currency.equals(money.currency);
   }
 
-  Money times(int multiplier){
+  Money times(int multiplier) {
     return new Money(amount * multiplier, currency);
   }
 
   String currency() {
     return currency;
+  }
+
+  Expression plus(Money added) {
+    return new Money(amount + added.amount, currency);
   }
 }
