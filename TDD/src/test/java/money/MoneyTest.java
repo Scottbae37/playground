@@ -21,7 +21,7 @@ public class MoneyTest {
    * ---- 공용 equals
    * 공용 times
    * ---- Franc과 Dollar 비교하기
-   * 통화? (this.getClass().equals(money.getClass()))
+   * ---- 통화? (this.getClass().equals(money.getClass()))
    * testFrancMultiplication 지워야 하나?
    */
 
@@ -47,17 +47,29 @@ public class MoneyTest {
     assertEquals(Money.franc(10), five.times(2));
     assertEquals(Money.franc(15), five.times(3));
   }
+
+  @Test
+  void testCurrency() {
+    assertEquals("USD", Money.dollar(1).currency());
+    assertEquals("CHF", Money.franc(1).currency());
+  }
 }
 
 abstract class Money {
   int amount;
+  private String currency;
+
+  public Money(int amount, String currency) {
+    this.amount = amount;
+    this.currency = currency;
+  }
 
   static Money dollar(int amount) {
-    return new Dollar(amount);
+    return new Dollar(amount, "USD");
   }
 
   public static Money franc(int amount) {
-    return new Franc(amount);
+    return new Franc(amount, "CHF");
   }
 
   @Override
@@ -67,24 +79,28 @@ abstract class Money {
   }
 
   abstract Money times(int multiplier);
+
+  String currency() {
+    return currency;
+  }
 }
 
 class Dollar extends Money {
-  Dollar(int amount) {
-    this.amount = amount;
+  Dollar(int amount, String currency) {
+    super(amount, currency);
   }
 
   Money times(int multiplier) {
-    return new Dollar(amount * multiplier);
+    return Money.dollar(amount * multiplier);
   }
 }
 
 class Franc extends Money {
-  Franc(int amount) {
-    this.amount = amount;
+  Franc(int amount, String currency) {
+    super(amount, currency);
   }
 
   Money times(int multiplier) {
-    return new Franc(amount * multiplier);
+    return Money.franc(amount * multiplier);
   }
 }
