@@ -20,6 +20,8 @@ public class MoneyTest {
    * ---- 5CHF * 2 = 10CHF
    * ---- 공용 equals
    * 공용 times
+   * ---- Franc과 Dollar 비교하기
+   * 통화? (this.getClass().equals(money.getClass()))
    */
 
   @Test
@@ -35,6 +37,7 @@ public class MoneyTest {
     assertFalse(new Dollar(5).equals(new Dollar(6)));
     assertTrue(new Franc(5).equals(new Franc(5)));
     assertFalse(new Franc(5).equals(new Franc(6)));
+    assertFalse(new Franc(5).equals(new Dollar(5)));
   }
 
   @Test
@@ -50,7 +53,7 @@ public class MoneyTest {
     @Override
     public boolean equals(Object obj) {
       Money money = (Money) obj;
-      return amount == money.amount;
+      return amount == money.amount && this.getClass().equals(money.getClass());
     }
   }
 
