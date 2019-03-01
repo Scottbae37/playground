@@ -69,6 +69,13 @@ public class ChainOfResponsibilityTest {
     result = f.filter(value);
     assertEquals("No", result);
     System.out.println(value + "-" + result);
+    /** Output
+     *
+     * 99-NormalFilter.filter
+     * 100-MidFilter.filter
+     * 200-HighFilter.filter
+     * 300-No
+     */
   }
 }
 
