@@ -1,25 +1,43 @@
-plugins {
-    id 'java'
-}
-
 group 'BjsGroupId'
 version '0.1-SNAPSHOT'
 
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.19"
+    }
 }
+
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "net.ltgt.apt"
+
+sourceCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
 
 def mockito_ver = '2.21.0'
 def junit5_ver = '5.2.+'
 
+sourceSets {
+    main{
+        java{
+            srcDirs 'build/generated/source/apt/main/di'
+        }
+    }
+}
+
 dependencies {
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: '25.1-jre'
-
+    
+    compile 'com.google.dagger:dagger:2.12'
+    apt 'com.google.dagger:dagger-compiler:2.12'
+    
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junit5_ver
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junit5_ver
