@@ -4,7 +4,6 @@ import javax.inject.Inject;
 
 @MySingleton
 public class NeedPrinterAndModuleA {
-//  @Inject
   ModuleA moduleA;
   private final Printer printer;
   private final Startable startable;
@@ -12,7 +11,7 @@ public class NeedPrinterAndModuleA {
 
   //  @MySingleton --> Error msg: @Scope annotations are not allowed on @Inject constructors. Annotate the class instead.
   @Inject
-  public NeedPrinterAndModuleA(ModuleA moduleA, Printer printer, Startable startable) {
+  public NeedPrinterAndModuleA(ModuleA moduleA, Printer printer, @HotStarterQualifier Startable startable) {
     this.moduleA = moduleA;
     this.printer = printer;
     this.startable = startable;
@@ -23,7 +22,7 @@ public class NeedPrinterAndModuleA {
   }
 
   @Inject
-  void useStarter(){
+  void useStarter() {
     startable.starttttt();
   }
 }

@@ -1,12 +1,10 @@
 package di.practice;
 
 import dagger.Module;
-import dagger.Provides;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Module/*(includes = {ColdStarterModule.class})*/
+@Module
 @MySingleton
 public class Printer {
   public void out(String s) {
@@ -17,7 +15,7 @@ public class Printer {
   private final Startable startable;
 
   @Inject
-  public Printer(@ColdStarterQulifier Startable startable) {
+  public Printer(@ColdStarterQualifier Startable startable) {
     this.startable = startable;
   }
 

@@ -13,6 +13,7 @@ public class HotStarterExternalModule {
 
   @Provides
   @MySingleton
+  @HotStarterQualifier
   public Startable provideStarter() {
     return startable;
   }

@@ -7,8 +7,8 @@ import dagger.Provides;
 public class ColdStarterModule {
   @Provides
   @MySingleton
-  @ColdStarterQulifier
-  public Startable provideStarter(){
+  @ColdStarterQualifier
+  public Startable provideStarter() {
     return new ColdStarter();
   }
 }

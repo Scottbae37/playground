@@ -40,18 +40,20 @@ public class Dagger2Test {
     /**
      * Output:
      *  Out
-     *  di.practice.ModuleA@355da254
-     *  di.practice.ModuleA@355da254
-     *  di.practice.ModuleA@4dc63996
-     *  di.practice.ModuleA@4dc63996
-     *  di.practice.Printer@d716361 - p1_1
-     *  di.practice.Printer@d716361 - p1_2
-     *  di.practice.Printer@6ff3c5b5 - p2_1
-     *  di.practice.Printer@6ff3c5b5 - p2_2
-     *  di.practice.NeedPrinterAndModuleA@3764951d
-     *  di.practice.NeedPrinterAndModuleA@3764951d
-     *  di.practice.NeedPrinterAndModuleA@4b1210ee
-     *  di.practice.NeedPrinterAndModuleA@4b1210ee
+     *  di.practice.ModuleA@63947c6b
+     *  di.practice.ModuleA@63947c6b
+     *  di.practice.ModuleA@2b193f2d
+     *  di.practice.ModuleA@2b193f2d
+     *  di.practice.Printer@355da254 - p1_1
+     *  di.practice.Printer@355da254 - p1_2
+     *  di.practice.Printer@4dc63996 - p2_1
+     *  di.practice.Printer@4dc63996 - p2_2
+     *  di.practice.NeedPrinterAndModuleA@d716361
+     *  di.practice.NeedPrinterAndModuleA@d716361
+     *  di.practice.NeedPrinterAndModuleA@6ff3c5b5
+     *  di.practice.NeedPrinterAndModuleA@6ff3c5b5
+     *  ColdStarter.starttttt
+     *  HotStarter.startttt
      */
   }
 }
