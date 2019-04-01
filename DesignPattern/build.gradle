@@ -25,7 +25,7 @@ def junit5_ver = '5.2.+'
 sourceSets {
     main{
         java{
-            srcDirs 'build/generated/source/apt/main/di'
+            srcDirs 'build/generated/source/apt/main'
         }
     }
 }
