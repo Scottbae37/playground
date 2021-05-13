@@ -1,2 +1,2 @@
-# playground_java
+# playground
 For SW practice
