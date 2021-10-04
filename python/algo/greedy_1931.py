@@ -22,10 +22,10 @@ if __name__ == '__main__':
     # 먼저 끝나는 것, 끝시간이 같은 경우는 시작시간이 앞선 것
     l.sort(key=lambda v: (v[1], v[0]))
 
-    cnt = 1
+    ans = 1
     end = l[0][1]
-    for v in l[1:]:
-        if end <= v[0]:
-            end = v[1]
-            cnt += 1
-    print(cnt)
+    for (s, e) in l[1:]:
+        if s >= end:
+            ans += 1
+            end = e
+    print(ans)
