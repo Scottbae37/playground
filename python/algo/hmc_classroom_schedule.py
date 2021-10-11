@@ -8,6 +8,13 @@
 
 # 3
 
+# 3
+# 1 3
+# 2 4
+# 3 5
+
+# 2
+
 if __name__ == '__main__':
     N = int(input())
     input_list = []

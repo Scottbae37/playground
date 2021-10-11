@@ -80,3 +80,62 @@ if __name__ == '__main__':
                 (m_dist, m_speed) = m_l[m]
 
     print(ans)
+
+
+# import sys
+#
+# def insert_data(list_name, section):
+#     for idx in range(section):
+#         input_data = list(map(int, input().split()))
+#         list_name.append(input_data)
+#         if idx == section: break
+#     return list_name
+#
+# def checkValidation(list):
+#     totalCount = 0
+#     for idx, item in enumerate(list):
+#         totalCount += item[0]
+#         if 100 < totalCount: return 1
+#     if 100 != totalCount: return 1
+#     return 0
+#
+# def main():
+#     구간입력카운트, 운행입력카운트 = map(int, input().split())
+#
+#     구간정보 = list()
+#     운행정보 = list()
+#     최대초과량 = 0
+#
+#     구간정보 = insert_data(구간정보, 구간입력카운트)
+#     운행정보 = insert_data(운행정보, 운행입력카운트)
+#
+#     if checkValidation(구간정보) != 0: sys.exit()
+#     if checkValidation(운행정보) != 0: sys.exit()
+#
+#     운행시작위치 = 0
+#
+#     for idx in range(운행입력카운트):
+#         운행종료위치 = 운행시작위치 + 운행정보[idx][0]
+#         현재속도 = 운행정보[idx][1]
+#
+#         구간시작위치 = 0
+#
+#         for jdx in range(구간입력카운트):
+#             구간종료위치 = 구간시작위치 + 구간정보[jdx][0]
+#             구간제한속도 = 구간정보[jdx][1]
+#
+#             초과속도 = 현재속도 - 구간제한속도
+#
+#             if 구간종료위치 <= 운행시작위치: 0
+#             elif 운행종료위치 <= 구간시작위치: 0
+#             elif 0 <= 초과속도 and 최대초과량 < 초과속도:
+#                 최대초과량 = 초과속도
+#
+#             구간시작위치 = 구간종료위치
+#
+#         운행시작위치 = 운행종료위치
+#
+#     print(최대초과량)
+#
+# if __name__ == "__main__":
+#     main()
