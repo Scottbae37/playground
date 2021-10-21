@@ -48,3 +48,13 @@ print(ans[M-1])
 # 사이즈가 1이 될 때까지 -> 1은 정렬이 되어있음
 # 작은 것 부터 합친다.
 # 남은 합친 것들은 쌓는다
+for i in range(1, len(l)): # 1 2 3 4 5
+    for j in range(i, len(l)): #
+        if l[j-1] > l[j]:
+            
+
+def insertion_sort(arr):
+    for end in range(1, len(arr)):
+        for i in range(end, 0, -1):
+            if arr[i - 1] > arr[i]:
+                arr[i - 1], arr[i] = arr[i], arr[i - 1]

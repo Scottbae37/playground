@@ -16,19 +16,25 @@
 
 # abc
 
-if __name__ == '__main__':
-    N = int(input())
+def sol(l: list[str]):
     d = {}
-    for _ in range(N):
-        s = input()
+    for s in l:
         if s not in d:
             d[s] = 0
         d[s] += 1
+    most_frequent = max(d.values())
 
-    target = max(d.values())
-    l = []
+    ans = []
     for k, v in d.items():
-        if v == target:
-            l.append(k)
+        if v == most_frequent:
+            ans.append(k)
+    return sorted(ans)
 
-    print(sorted(l)[0])
+
+if __name__ == '__main__':
+    N = int(input())
+    l = []
+    for _ in range(N):
+        l.append(input())
+    ans = sol(l)
+    print(ans[0])

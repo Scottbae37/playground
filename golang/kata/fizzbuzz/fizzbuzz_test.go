@@ -1,6 +1,7 @@
 package fizzbuzz
 
 import (
+	"container/list"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"log"
@@ -51,4 +52,27 @@ func (s TestSuite) TestOf15isFizzBuzz() {
 
 func (s TestSuite) TestAcceptanceTest() {
 	assert.Equal(s.T(), "FizzBuzz", s.cut.Of(3*3*3*5*5*5*5))
+}
+
+func (s TestSuite) TestN() {
+	input := []int{20, 7, 23, 19, 10, 15, 25, 8, 13}
+	var ans []int = sol(input)
+
+	log.Println(ans)
+}
+
+func sol(nums []int) []int {
+	// 2개를 제거해 100을 만들기
+	// 제거할 위치를 담는 애
+	sum := 0
+	l := list.New()
+	for _, num := range nums {
+		sum += num
+		l.PushBack(num)
+	}
+	return solve(l, sum)
+}
+
+func solve(l *list.List, sum int) []int {
+
 }
