@@ -38,18 +38,18 @@ def go(size):
     return cnt <= m
 
 
-# if __name__ == '__main__':
-n, m = map(int, input().split())
-l = list(map(int, input().split()))
+if __name__ == '__main__':
+    n, m = map(int, input().split())
+    l = list(map(int, input().split()))
 
-left = max(l)
-right = sum(l)
-ans = 0
-while left <= right:
-    mid = int((left + right) / 2)
-    if go(mid):
-        ans = mid
-        right = mid - 1
-    else:
-        left = mid + 1
-print(ans)
+    left = max(l)
+    right = sum(l)
+    ans = 0
+    while left <= right:
+        mid = int((left + right) / 2)
+        if go(mid):
+            ans = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+    print(ans)
