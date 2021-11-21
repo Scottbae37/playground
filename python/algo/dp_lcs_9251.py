@@ -16,6 +16,17 @@
 
 # 4
 
+# CAYKP
+# CAPCAK
+
+# 3
+
+
+# ACAYKP
+# APCAK
+
+# 4
+
 # 각각의 수열을 하나씩 증가하면서 테이블 갱신
 
 if __name__ == '__main__':
@@ -26,9 +37,9 @@ if __name__ == '__main__':
 
     for i in range(1, len(a) + 1):
         for j in range(1, len(b) + 1):
-            if a[i - 1] == b[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1] + 1  # 좌측 혹은 좌상+1한거
-                continue
-            dp[i][j] = max(dp[i][j - 1], dp[i - 1][j])  # 위와 좌측에서
+            if a[i - 1] == b[j - 1]:  # 같다면 좌 max(상단 값 + 1, 이전 값)
+                dp[i][j] = max(dp[i - 1][j - 1] + 1, dp[i][j - 1])
+            else:
+                dp[i][j] = max(dp[i][j - 1], dp[i - 1][j])
 
     print(dp[len(a)][len(b)])
