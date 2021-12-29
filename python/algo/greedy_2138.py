@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     # 젤 왼쪽것을 보고, 뒤집을지 말지 결정
     ans = 0
-    for i in range(1, N):
+    for i in range(1, N-1):
         if a[i-1] != b[i-1]:
             ans += 1
             # i-1, i, i+1
