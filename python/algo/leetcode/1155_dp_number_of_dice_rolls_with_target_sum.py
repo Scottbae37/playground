@@ -2,6 +2,7 @@ import sys
 
 sys.setrecursionlimit(15000)
 
+
 def recursive(n, num_face, target):
     global dp
     if n == 0:
@@ -21,7 +22,6 @@ def recursive(n, num_face, target):
 
 
 class Solution:
-
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
         global dp
         dp = {}
