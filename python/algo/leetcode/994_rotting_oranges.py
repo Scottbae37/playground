@@ -57,3 +57,6 @@ if __name__ == '__main__':
     assert 4 == cut.orangesRotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]])
     assert -1 == cut.orangesRotting([[2, 1, 1], [0, 1, 1], [1, 0, 1]])
     assert 0 == cut.orangesRotting([[0, 2]])
+    c = collections.Counter(['b','b','c'])
+    print(c.most_common(len(c)))
+
