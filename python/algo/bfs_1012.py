@@ -26,6 +26,7 @@
 # 1
 from collections import deque
 
+
 def in_range(x, y):
     global X, Y
     if X <= x:
@@ -40,6 +41,7 @@ def in_range(x, y):
 
 
 dir = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
 
 def bfs(x, y, ll):
     q = deque()
