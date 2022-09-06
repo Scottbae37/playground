@@ -8,10 +8,10 @@ import math
 import bisect
 from typing import *
 
+# https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # 꺽이는 점을 찾을 필요 없음
         # 해결법: min이 갱신 될때마다, max값 업데이트
         min_val = 10001
         max_val = 0

@@ -16,3 +16,7 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     assert 2 == s.solve()
+
+
+# class Solution:
+#     def criticalConnections(self, n: int, connections: List[List[int]]) -> List[List[int]]:
