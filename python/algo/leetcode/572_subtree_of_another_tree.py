@@ -1,9 +1,14 @@
+from typing import *
+
+
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 def pre_order(root: Optional[TreeNode], l):
     if root:
         l.append(root.val)
@@ -15,8 +20,9 @@ def find_same_root(root: Optional[TreeNode], target):
     if root:
         if target == root.val:
             return root
+        if root.left < target:
+            return find_same_root(root.right, target)
         return find_same_root(root.left, target)
-        return find_same_root(root.right, target)
 
 
 class Solution:
@@ -31,3 +37,4 @@ class Solution:
         pre_order(an, l2)
         print(l2)
         return l == l2
+
