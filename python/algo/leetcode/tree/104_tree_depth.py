@@ -28,3 +28,19 @@ class Solution:
                     q.append(r.right)
         return depth
 
+
+class SolutionRecur:
+    ans = 0
+
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        def recur(root, dep):
+            if root is None:
+                return
+            self.ans = max(self.ans, dep)
+            recur(root.left, dep + 1)
+            recur(root.right, dep + 1)
+
+        recur(root, 1)
+        return self.ans
+
+
